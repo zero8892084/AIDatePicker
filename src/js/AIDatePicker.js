@@ -7,6 +7,7 @@
 		'<table class="nb-table nb-table-time nb-table-time-title">'+
 			'<tr>'+
 				'<td colspan="7" class="nb-table-time-head">'+
+					'<span class="nb-head-return"></span>'+
 					'<span class="nb-head-title" style="font-size:1.24em">'+
 						'选择日期'+
 					'</span>'+
@@ -150,6 +151,11 @@
 		//新建滑动类
 		//this.slider=new NBDatePickerSlider(this);
 		new ZDrag($('#'+wrapId),this);
+
+		$('#'+eleId).on('touchstart','.nb-head-return',function(event){
+			event.preventDefault();
+			_th.hide();
+		});
 	}
 
 	
