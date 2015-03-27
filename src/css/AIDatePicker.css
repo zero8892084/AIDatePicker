@@ -1,0 +1,107 @@
+@charset "utf-8";
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,div{
+    margin:0;padding:0;
+}
+
+/* 清理浮动 */
+.fn-clear:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+.fn-clear {
+    zoom:1; /* for IE6 IE7 */
+}
+
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide {
+    display:none;
+}
+
+/*table start*/
+.nb-table{
+	width:100%;
+	border-collapse:collapse;
+    border-spacing:0;
+	background-color: white;
+}
+/*table end*/
+
+/*timepicker start*/
+
+.nb-table-time{
+	text-align:center;
+	color:#65635F;
+}
+.nb-table-time-title{
+	border-left:1px solid #F3F2F1;
+	border-right:1px solid #F3F2F1;
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #F3F2F1;
+}
+.nb-table-time-title td{
+	padding:1em 0;
+	color:#0084CE;
+}
+.nb-table-time-title .nb-table-time-head{
+	background-color: #efefef;
+	border-bottom: 1px solid #d3d3d3;
+	padding:0;
+	height: 3em;
+}
+.nb-time{
+	/*padding-top: 101px;*/
+	position: absolute;
+	width:100%;
+	top:0;
+	left:0;
+	background-color: #FFFFFF;
+	box-sizing:border-box;
+	overflow: hidden;
+	z-index: 1001;
+	-webkit-transition:all .3s ease-out;
+}
+.nb-time-month{
+	color:#65635F;
+	padding: 0.8em 0;
+	text-align: center;
+}
+.nb-time-monthblock-wrap{
+	overflow: hidden;
+}
+.nb-table-time-date{
+	border-top: 1px solid #F3F2F1;
+	border-left: 1px solid #F3F2F1;
+}
+.nb-table-time-date td{
+	height:3em;
+	border-bottom: 1px solid #F3F2F1;
+	border-right: 1px solid #F3F2F1;
+	width:14.285%;
+}
+.nb-table-time-date .noin{
+	color:#D1CEC8;
+}
+.nb-table-time-date .disabled{
+	background-color: #F3F2F1;
+}
+.nb-table-time-date .selected{
+	background-color: #0084CE;
+	color:#FFFFFF;
+}
+.nb-table-time-date .today{
+	color:#7DC533;
+}
+.nb-table-time-date .desc{
+	font-size: .8em;
+}
+.nb-time-loadding{
+	border:1px solid #F3F2F1;
+	padding:1.5em 0;
+	text-align: center;
+}
+/*timepicker end*/

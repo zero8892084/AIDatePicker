@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>测试</title>
+</head>
+<body>
+<meta charset="utf-8">
+<link rel="apple-touch-icon" href="touch-icon-iphone.png" />
+<link rel="apple-touch-icon-precomposed" href="touch-icon-iphone.png" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 , user-scalable=no">
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" href="../css/AIDatePicker.css">
+<script src="../../lib/jquery/2.1.1/jquery.min.js"></script>
+<script src="../js/AIDatePicker.js"></script>
+<div>
+	<div>
+		<button id="J_test">测试</button>
+	</div>
+</div>
+<script type="text/javascript">
+	var d=new Date();
+	d.setFullYear(2013);
+	d.setMonth(11);
+	var b=new Date();
+	b.setFullYear(2017);
+	var t=new NBDatePicker({
+		rules:[
+			{name:'max',val:b},
+			{name:'min',val:d},
+			function(date){
+				if(date.getDate()%4==0){
+					return false;
+				}
+				return true;
+			}
+		]
+	});
+	$('#J_test').on('click',function(){
+		t.show().on('select',function(e){
+		}).on('unSelect',function(e){
+		}).on('hide',function(e){
+		});
+	});
+</script>
+</body>
+</html>
