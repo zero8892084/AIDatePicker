@@ -17,6 +17,35 @@
 		<button id="J_test">测试</button>
 	</div>
 </div>
+
+
+
+<html>
+	<head>
+		<title>标题</title>
+	</head>
+	
+	<body>
+		<p>段落</p>
+	</body>
+</html>
+
+<!-- <p id="J_id1" class="c1">t1</p>
+
+<div id="J_id2" class="c1 c2">
+
+	<ul class="c3" data-val="v1">
+
+		<li>1</li>
+
+		<li>2</li>
+
+	</ul>
+
+</div> -->
+
+
+
 <script type="text/javascript">
 	var d=new Date();
 	d.setFullYear(2013);
@@ -41,6 +70,167 @@
 		}).on('hide',function(e){
 		});
 	});
+/*
+	function object(o){
+		function F(){}
+		F.prototype = o;
+		return new F();
+	}
+	function inheritPrototype(subType,superType){
+		var prototype=object(superType.prototype);
+		prototype.constructor=subType;
+		subType.prototype=prototype;
+	}
+
+
+
+	function SuperType (name) {
+		this.name=name;
+		this.arr= ['a','b'];
+	}
+	SuperType.prototype.sayName=function(){
+		alert(this.name);
+	}
+	function SubType(name,age){
+		SuperType.call(this,name);
+		this.age=age;
+	}
+	inheritPrototype(SubType,SuperType);
+	SubType.prototype.sayAge=function(){
+		alert(this.age);
+	}
+	
+	var instance1 = new SubType("G",29);
+	instance1.arr.push('c');
+	console.log(instance1.arr);//["a", "b", "c"]
+	var instance2 = new SubType("D",29);
+	console.log(instance2.arr);//["a", "b"]
+
+	instance2.sayName();//D
+	*/
+
+	/*function isHostMethod(object,property){
+		var t=typeof object[property];
+		return t=='function' || 
+				(!!(t=='object'&&object[property]))||
+				t=='unknown';
+	}*/
+
+	/*var hasEnumShadowsQuirk=function(){
+		var o = {toString:function(){}};
+		var count = 0;
+		for(var i in o){
+			if(i=='toString'){
+				count++;
+			}
+		}
+		return (count>1);
+	}();*/
+
+	/*var $info = $("#info");
+	$.ajax({
+		// Change URL to see error happen
+		url: "/echo/json/",
+		data: {json: JSON.stringify({"name": "someValue"})},
+		type: "POST"
+	}).then(function (response) {
+		// success
+		$info.text(response.name);
+	},function () {
+		// failure
+		$info.text("bad things happen to good developers");
+	}).always(function () {
+		$info.append("...finally");
+	});
+*/
+/*
+	//Promise这里通过继承事件对象来实现
+	var Promise = function(){
+		EventEmitter.call(this);//借用构造函数
+	}
+	inheritPrototype(Promise,EventEmitter);//混成原型
+	Promise.prototype.then=function(suc,error){
+		if(typeof suc === 'function'){
+			//只执行一次回调
+			this.once('success',suc);
+		}
+		if(typeof suc === 'function'){
+			this.once('error',error);
+		}
+		return this;
+	}
+	
+	var Deferred=function(){
+		this.state='undo';
+		this.promise=new Promise();
+	}
+	Deferred.prototype.resolove=function(obj){
+		this.state='success';
+		this.promise.emit('success',obj);
+	}
+	Deferred.prototype.reject=function(error){
+		this.state='error';
+		this.promise.emit('error',error);
+	}
+
+	var myAjax=function(url,param){
+		var deferred=new Deferred();
+		$.ajax({
+			url:url,
+			data:param,
+			success:function(data){
+				deferred.resolove(data);
+			},
+			error:function(){
+				deferred.reject(data);
+			}
+		});
+		return deferred.promise;
+	}
+
+
+	$.when($.ajax("test1.html"), $.ajax("test2.html"))
+　　.done(function(){ alert("成功了！"); })
+　　.fail(function(){ alert("出错啦！"); });
+
+	var wait = function(dtd){
+　　　　var dtd = $.Deferred(); //新建一个Deferred对象
+　　　　var tasks = function(){
+　　　　　　alert("执行完毕！");
+　　　　　　dtd.resolve(); // 改变Deferred状态
+　　　　};
+　　　　setTimeout(tasks,5000);
+　　　　return dtd.promise(); //返回promise对象
+　　};
+
+	function jsonpCallback(response){
+		alert(response);
+	}
+	var script=document.createElement("script");
+	script.src="http://test.com/data?callback=jsonpCallback";
+	document.body.insertBefore(script,document.body.firstChild);
+
+	function createCORSRequest(method,url){
+		var xhr=new XMLHttpRequest();
+		if('withCredentials' in xhr){
+			xhr.open(method,url,true);
+		}else if(typeof XDomainRequest != 'undefined'){
+			xhr= new XDomainRequest();
+			xhr.open(method,url);
+		}else{
+			xhr=null;
+		}
+		return xhr;
+	}
+	*/
+	
+	/*var a=function(a){
+		return a+1;
+	}
+	function b(b){
+		return b-1;
+	}*/
+
 </script>
 </body>
 </html>
